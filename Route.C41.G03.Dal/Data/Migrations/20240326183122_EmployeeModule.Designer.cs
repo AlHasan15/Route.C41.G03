@@ -69,7 +69,7 @@ namespace Route.C41.G03.Dal.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EmployeeType")
-                        .HasColumnType("int");
+                        .HasColumnType("int"); 
 
                     b.Property<string>("Gender")
                         .IsRequired()
