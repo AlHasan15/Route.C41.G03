@@ -7,14 +7,23 @@ using System.Threading.Tasks;
 
 namespace Route.C41.G03.BLL.Interfaces
 {
-    public interface IEmployeeRepository 
+    public interface IEmployeeRepository : IGenericRepository<Employee>
     {
-        IEnumerable<Employee> GetAll();
-        Employee Get(int id);
-        int Add(Employee entity);
-        int Update(Employee entity);
-        int Delete(Employee entity);
+        //if the interface stays empty we don't need it
+        //but we leave it like this 
+        //so if we need to implement any method that is related to the interface in the future
+        //and to know that we need to make that interface 
 
-
+        public IQueryable<Employee> GetEmployeesByAddress(string address);
     }
+    //public interface IEmployeeRepository 
+    //{
+    //    IEnumerable<Employee> GetAll();
+    //    Employee Get(int id);
+    //    int Add(Employee entity);
+    //    int Update(Employee entity);
+    //    int Delete(Employee entity);
+
+
+    //}
 }
