@@ -23,6 +23,7 @@ namespace Route.C41.G03PL.Controllers
         // /Employee/Index
         public IActionResult Index()
         {
+            // TempData.Keep(); if i want to keep tempdata value from previous req
             // Binding Through Views Dictionary : transfer Data from action to view 
 
             // 1. viewData is a dictionary type property (introduced in asp.net framework 3.5)
@@ -51,9 +52,10 @@ namespace Route.C41.G03PL.Controllers
             {
                 var count = employeeRepository.Add(employee);
                 if (count > 0)
-                {
-                    return RedirectToAction(nameof(Index));
-                }
+                    TempData["Message"] = "Employee is Created Successfully";
+                else
+                    TempData["Message"] = "Ann Error Has Occured , Emplyee not Created ";
+                return RedirectToAction(nameof(Index));
             }
             return View(employee);
         }
